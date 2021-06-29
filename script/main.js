@@ -36,13 +36,12 @@ Vue.component('gallery-item', {
 
 Vue.component('website-item', {
   props: {
-      tag: {default: 'tag-other'},
-      title: {default: 'Title'},
+      tag: {default: "tag-black"},
+      id: {default: "website1"},
       image: {default: 'images/cloud.jpg'},
       link:{default: 'https://github.com/davidunilab'},
       caption: {default: 'https://github.com/davidunilab'},
-      alt: {default: 'gallery image'}
-  
+      alt: {default: 'Gallery image'}
 },
   data: function () {
       return {
@@ -53,11 +52,11 @@ Vue.component('website-item', {
     },
   template: `
   <li :class="tag">
-    <a class="" href="#modal-full" uk-toggle>
+    <a :href="'#'+id" uk-toggle>
       <img :src="image" :alt="alt"> 
     </a>
 
-    <div id="modal-full" class="uk-modal-full" uk-modal>
+    <div :id="id" class="uk-modal-full" uk-modal>
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
             <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
